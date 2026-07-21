@@ -1,9 +1,9 @@
 import { expect } from '@playwright/test';
-import { test } from '../../../utils/test/playwright';
+import { test } from '../../../../utils/test/playwright';
 
 test.describe('icon: dynamic type', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/test/dynamic-type');
+    await page.goto('/icon/test/dynamic-type');
   });
 
   test('should scale text on larger font sizes', async ({ page }) => {
