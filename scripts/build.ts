@@ -98,9 +98,19 @@ async function copyToTesting(rootDir: string, distDir: string, srcSvgData: SvgDa
   const testDir = path.join(rootDir, 'www');
   const testBuildDir = path.join(testDir, 'build');
   const testSvgDir = path.join(testBuildDir, 'svg');
+  const srcTestDir = path.join(rootDir, 'src', 'tests');
+  const testTestDir = path.join(testDir, 'tests');
+  const srcTestAssetsDir = path.join(rootDir, 'src', 'components', 'test');
+  const testAssetsDir = path.join(testTestDir, 'assets');
 
   // Ensure all directories exist
-  await Promise.all([fs.ensureDir(testDir), fs.ensureDir(testBuildDir), fs.ensureDir(testSvgDir)]);
+  await Promise.all([
+    fs.ensureDir(testDir),
+    fs.ensureDir(testBuildDir),
+    fs.ensureDir(testSvgDir),
+    fs.ensureDir(testTestDir),
+    fs.ensureDir(testAssetsDir),
+  ]);
 
   await Promise.all(
     srcSvgData
@@ -112,8 +122,19 @@ async function copyToTesting(rootDir: string, distDir: string, srcSvgData: SvgDa
   );
 
   const distCheatsheetFilePath = path.join(distDir, 'cheatsheet.html');
-  const testCheatsheetFilePath = path.join(testDir, 'cheatsheet.html');
-  await fs.copyFile(distCheatsheetFilePath, testCheatsheetFilePath);
+  const testCheatsheetFilePath = path.join(testTestDir, 'cheatsheet.html');
+  const srcIndexFilePath = path.join(rootDir, 'src', 'index.html');
+  const testIndexFilePath = path.join(testDir, 'index.html');
+
+  await Promise.all([
+    fs.copyFile(distCheatsheetFilePath, testCheatsheetFilePath),
+    fs.copyFile(srcIndexFilePath, testIndexFilePath),
+    fs.copy(srcTestDir, testTestDir, { overwrite: true, filter: (src) => !src.endsWith('cheatsheet.html') }),
+    fs.copy(srcTestAssetsDir, testAssetsDir, {
+      overwrite: true,
+      filter: (src) => src.endsWith('.svg') || src.endsWith('.html'),
+    }),
+  ]);
 }
 
 async function createSvgSymbols(version: string, distDir: string, srcSvgData: SvgData[]) {
@@ -164,12 +185,12 @@ async function createCheatsheet(
   svgSymbolsContent: string,
   srcSvgData: SvgData[],
 ) {
-  const CheatsheetTmpFilePath = path.join(rootDir, 'scripts', 'cheatsheet-template.html');
+  const CheatsheetTmpFilePath = path.join(rootDir, 'src', 'tests', 'cheatsheet.html');
   const distCheatsheetFilePath = path.join(distDir, 'cheatsheet.html');
 
   const c = srcSvgData.map(
     (svgData) =>
-      `<a href="./svg/${svgData.fileName}"><svg><use href="#${svgData.iconName}" xlink:href="#${svgData.iconName}"/></svg></a>`,
+      `<a href="/svg/${svgData.fileName}"><svg><use href="#${svgData.iconName}" xlink:href="#${svgData.iconName}"/></svg></a>`,
   );
 
   c.push(svgSymbolsContent);

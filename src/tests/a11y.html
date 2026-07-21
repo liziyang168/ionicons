@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" mode="ios">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Accessibility Test</title>
+    <script type="module" src="/build/ionicons.esm.js"></script>
+    <script nomodule src="/build/ionicons.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./header.js"></script>
+  </head>
+
+  <body>
+    <test-header></test-header>
+
+    <main>
+      <h1>Accessibility Test</h1>
+
+      <h2>Default</h2>
+      <ion-icon name="cellular"></ion-icon>
+
+      <h2>With aria-label</h2>
+      <ion-icon name="cellular" aria-label="Mobile data"></ion-icon>
+
+      <h2>Hidden from accessibility tree (aria-hidden="true")</h2>
+      <ion-icon name="cellular" aria-hidden="true"></ion-icon>
+    </main>
+  </body>
+</html>
