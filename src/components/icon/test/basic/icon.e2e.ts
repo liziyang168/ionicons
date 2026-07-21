@@ -8,6 +8,6 @@ test.describe('icon: basic', () => {
     // Wait for all SVGs to be lazily loaded before taking screenshots
     await page.waitForLoadState('networkidle');
 
-    await expect(page).toHaveScreenshot(`icon-diff.png`, { fullPage: true });
+    await expect(page).toHaveScreenshot(`icon-basic.png`, { fullPage: true });
   });
 });

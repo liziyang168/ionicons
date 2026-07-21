@@ -20,8 +20,7 @@ test.describe('icon: rtl', () => {
     // Wait for all SVGs to be lazily loaded before taking screenshots
     await page.waitForLoadState('networkidle');
 
-    const rtlTests = page.locator('main');
-    await expect(rtlTests).toHaveScreenshot(`icon-rtl-diff.png`);
+    await expect(page).toHaveScreenshot(`icon-rtl.png`);
   });
 
   test('arrows should flip if dir changes on the element', async ({ page }) => {
