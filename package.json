@@ -43,15 +43,14 @@
     }
   },
   "scripts": {
-    "build": "run-s clean build.* prettier",
+    "build": "run-s clean build.*",
     "build.files": "tsx scripts/build.ts",
     "build.component": "stencil build",
     "build.collection": "tsx scripts/collection-copy.ts",
     "clean": "rimraf dist components icons www",
     "lint": "npm run prettier -- --write",
-    "prettier": "npm run prettier.base -- --write",
-    "prettier.base": "prettier --cache \"./({bin,scripts,src,test}/**/*.{ts,tsx,js,jsx})|bin/stencil|.github/(**/)?*.(yml|yaml)|*.js\"",
-    "prettier.dry-run": "npm run prettier.base -- --list-different",
+    "prettier": "prettier \"./src/**/*.{html,ts,tsx,js,jsx,scss}\"",
+    "prettier.dry-run": "npm run prettier -- --list-different",
     "start": "run-s build.files && stencil build --dev --watch --serve",
     "test": "run-s test.spec test.e2e",
     "test.spec": "jest",
