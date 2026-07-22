@@ -107,27 +107,27 @@ svg {
 }
 
 :host(.ion-color-primary) {
-  --ion-color-base: var(--ion-color-primary, #3880ff);
+  --ion-color-base: var(--ion-color-primary, #0054e9);
 }
 
 :host(.ion-color-secondary) {
-  --ion-color-base: var(--ion-color-secondary, #0cd1e8);
+  --ion-color-base: var(--ion-color-secondary, #0163aa);
 }
 
 :host(.ion-color-tertiary) {
-  --ion-color-base: var(--ion-color-tertiary, #f4a942);
+  --ion-color-base: var(--ion-color-tertiary, #6030ff);
 }
 
 :host(.ion-color-success) {
-  --ion-color-base: var(--ion-color-success, #10dc60);
+  --ion-color-base: var(--ion-color-success, #2dd55b);
 }
 
 :host(.ion-color-warning) {
-  --ion-color-base: var(--ion-color-warning, #ffce00);
+  --ion-color-base: var(--ion-color-warning, #ffc409);
 }
 
 :host(.ion-color-danger) {
-  --ion-color-base: var(--ion-color-danger, #f14141);
+  --ion-color-base: var(--ion-color-danger, #c5000f);
 }
 
 :host(.ion-color-light) {
@@ -135,7 +135,7 @@ svg {
 }
 
 :host(.ion-color-medium) {
-  --ion-color-base: var(--ion-color-medium, #989aa2);
+  --ion-color-base: var(--ion-color-medium, #636469);
 }
 
 :host(.ion-color-dark) {
