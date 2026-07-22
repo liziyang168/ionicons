@@ -16,13 +16,15 @@
     <main>
       <h1>Icon - Accessibility</h1>
 
-      <h2>Default</h2>
-      <ion-icon name="cellular"></ion-icon>
-
-      <h2>With aria-label</h2>
+      <h2>Icon with aria-label</h2>
       <ion-icon name="cellular" aria-label="Mobile data"></ion-icon>
 
-      <h2>Hidden from accessibility tree (aria-hidden="true")</h2>
+      <h2>Button with aria-label</h2>
+      <button aria-label="Mobile data">
+        <ion-icon name="cellular" aria-hidden="true"></ion-icon>
+      </button>
+
+      <h2>Icon with aria-hidden</h2>
       <ion-icon name="cellular" aria-hidden="true"></ion-icon>
     </main>
   </body>
