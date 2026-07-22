@@ -53,7 +53,7 @@
     "prettier.base": "prettier --cache \"./({bin,scripts,src,test}/**/*.{ts,tsx,js,jsx})|bin/stencil|.github/(**/)?*.(yml|yaml)|*.js\"",
     "prettier.dry-run": "npm run prettier.base -- --list-different",
     "start": "run-s build.files && stencil build --dev --watch --serve",
-    "test": "run-s test.spec",
+    "test": "run-s test.spec test.e2e",
     "test.spec": "jest",
     "test.e2e": "playwright test",
     "test.e2e.install": "playwright install && playwright install-deps"
