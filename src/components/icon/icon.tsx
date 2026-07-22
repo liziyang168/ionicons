@@ -218,10 +218,11 @@ export class Icon {
         }}
         {...inheritedAttributes}
       >
-        <div class="icon-inner">
-          {Build.isBrowser && this.svgContent ? <div innerHTML={this.svgContent}></div> : null}
-          <slot></slot>
-        </div>
+        {Build.isBrowser && this.svgContent ? (
+          <div class="icon-inner" innerHTML={this.svgContent}></div>
+        ) : (
+          <div class="icon-inner"></div>
+        )}
       </Host>
     );
   }

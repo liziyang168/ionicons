@@ -10,9 +10,7 @@ describe('icon', () => {
     expect(root).toEqualHtml(`
       <ion-icon class="md" role="img">
         <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
+          <div class="icon-inner"></div>
         </mock:shadow-root>
       </ion-icon>
     `);
@@ -28,9 +26,7 @@ describe('icon', () => {
     expect(root).toEqualHtml(`
       <ion-icon class="md flip-rtl icon-rtl" name="chevron-forward" role="img" aria-hidden="true">
         <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
+          <div class="icon-inner"></div>
         </mock:shadow-root>
       </ion-icon>
     `);
@@ -45,9 +41,7 @@ describe('icon', () => {
     expect(root).toEqualHtml(`
       <ion-icon class="md" name="star" role="img" aria-label="custom label">
         <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
+          <div class="icon-inner"></div>
         </mock:shadow-root>
       </ion-icon>
     `);
@@ -64,9 +58,7 @@ describe('icon', () => {
     expect(icon).toEqualHtml(`
       <ion-icon class="flip-rtl md" name="chevron-forward" role="img" aria-label="custom label">
         <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
+          <div class="icon-inner"></div>
         </mock:shadow-root>
       </ion-icon>
     `);
@@ -79,73 +71,8 @@ describe('icon', () => {
     expect(icon).toEqualHtml(`
       <ion-icon class="md" name="trash" role="img" aria-label="custom label">
         <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
+          <div class="icon-inner"></div>
         </mock:shadow-root>
-      </ion-icon>
-    `);
-  });
-
-  it('renders slotted font icon (Font Awesome)', async () => {
-    const { root } = await newSpecPage({
-      components: [Icon],
-      html: `
-        <ion-icon>
-          <i class="fa fa-home"></i>
-        </ion-icon>
-      `,
-    });
-    expect(root).toEqualHtml(`
-      <ion-icon class="md" role="img">
-        <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
-        </mock:shadow-root>
-        <i class="fa fa-home"></i>
-      </ion-icon>
-    `);
-  });
-
-  it('renders slotted font icon with color', async () => {
-    const { root } = await newSpecPage({
-      components: [Icon],
-      html: `
-        <ion-icon color="primary">
-          <i class="fa fa-heart"></i>
-        </ion-icon>
-      `,
-    });
-    expect(root).toEqualHtml(`
-      <ion-icon class="md ion-color ion-color-primary" color="primary" role="img">
-        <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
-        </mock:shadow-root>
-        <i class="fa fa-heart"></i>
-      </ion-icon>
-    `);
-  });
-
-  it('renders slotted font icon with custom style', async () => {
-    const { root } = await newSpecPage({
-      components: [Icon],
-      html: `
-        <ion-icon style="font-size: 48px">
-          <i class="fa fa-star"></i>
-        </ion-icon>
-      `,
-    });
-    expect(root).toEqualHtml(`
-      <ion-icon class="md" role="img" style="font-size: 48px">
-        <mock:shadow-root>
-          <div class="icon-inner">
-            <slot></slot>
-          </div>
-        </mock:shadow-root>
-        <i class="fa fa-star"></i>
       </ion-icon>
     `);
   });

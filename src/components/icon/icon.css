@@ -4,13 +4,12 @@
   width: 1em;
   height: 1em;
 
-  font-size: 1em;
-
-  contain: layout style;
+  contain: strict;
 
   fill: currentColor;
 
   box-sizing: content-box !important;
+
 }
 
 :host .ionicon {
@@ -25,26 +24,13 @@
   stroke-width: var(--ionicon-stroke-width, 32px);
 }
 
-.icon-inner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.icon-inner,
 .ionicon,
 svg {
   display: block;
 
   height: 100%;
   width: 100%;
-}
-
-/* Slotted Content
- * -----------------------------------------------------------
- */
-
-::slotted(*) {
-  font-size: inherit !important;
 }
 
 /* Icon RTL
