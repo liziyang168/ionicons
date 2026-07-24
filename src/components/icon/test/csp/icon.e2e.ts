@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import { test } from '../../../../utils/test/playwright';
+import { test } from '@utils/test/playwright';
 
 test.describe('icon: csp', () => {
   test.beforeEach(async ({ page }) => {
