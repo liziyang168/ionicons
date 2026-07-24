@@ -118,15 +118,11 @@ async function copyToTesting(rootDir: string, distDir: string, srcSvgData: SvgDa
       }),
   );
 
-  const distCheatsheetFilePath = path.join(distDir, 'cheatsheet.html');
   const wwwCheatsheetFilePath = path.join(cheatsheetDir, 'index.html');
   const srcIndexFilePath = path.join(rootDir, 'src', 'components', 'icon', 'test', 'index.html');
   const testIndexFilePath = path.join(testDir, 'index.html');
 
-  await Promise.all([
-    fs.copyFile(distCheatsheetFilePath, wwwCheatsheetFilePath),
-    fs.copyFile(srcIndexFilePath, testIndexFilePath),
-  ]);
+  await fs.copyFile(srcIndexFilePath, testIndexFilePath);
 
   // Generate the cheatsheet with placeholders filled in
   const svgSymbolsContent = await fs.readFile(path.join(distDir, 'ionicons.symbols.svg'), 'utf8');
